@@ -13,7 +13,7 @@ import java.util.List;
 public class DeptController_Feign
 {
 	@Autowired
-	private DeptClientService service = null;
+	private DeptClientService service;
 
 	@RequestMapping(value = "/consumer/dept/get/{id}")
 	public Dept get(@PathVariable("id") Long id)
