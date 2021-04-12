@@ -1,0 +1,30 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+zuul:
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+  #  忽略原路径访问
+  ignored-services: microservicecloud-dept
+  # 前缀
+  prefix: /cnzha
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+
+
+info:
+  app.name: cnzha-9527-microservicecloud
+  company.name: www.cnzha.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
